@@ -3,14 +3,16 @@ import { useRef, Dispatch, SetStateAction } from "react";
 interface Props {
   name: string;
   image: string;
+  songPath: string;
   setPlayedSong: Dispatch<SetStateAction<any>>;
 }
 
-const SingleSong = ({ name, image, setPlayedSong }: Props) => {
+const SingleSong = ({ name, image, songPath, setPlayedSong }: Props) => {
   const playButtonRef = useRef<HTMLButtonElement>(null);
 
-  const handleClick = () => {
-    setPlayedSong({ name, image });
+  const handlePlaySong = () => {
+    setPlayedSong(null);
+    setPlayedSong({ name, image, songPath });
   };
 
   return (
@@ -20,7 +22,7 @@ const SingleSong = ({ name, image, setPlayedSong }: Props) => {
         alt={name}
         onMouseOver={() => playButtonRef.current?.classList.add("active")}
         onMouseLeave={() => playButtonRef.current?.classList.remove("active")}
-        onClick={handleClick}
+        onClick={handlePlaySong}
       />
       <button className="play-button" ref={playButtonRef}></button>
       <p>{name}</p>

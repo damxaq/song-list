@@ -14,7 +14,7 @@ const Player = ({ song, setPlayedSong }: Props) => {
   return (
     <div className="player">
       <p className="player-title">{song.name}</p>
-      <ReactAudioPlayer src="../placeholder.mp3" autoPlay controls />
+      <ReactAudioPlayer src={song.songPath} autoPlay controls />
       <span id="close-button" onClick={handleClose}>
         X
       </span>
