@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import SingleSong from "./SingleSong";
+import Player from "./Player";
 
 const Songs = () => {
   const [songsList, setSongsList] = useState<any[]>([]);
+  const [playedSong, setPlayedSong] = useState(null);
 
   const fetchSongs = () => {
     fetch(`https://api-stg.jam-community.com/song/trending`)
@@ -29,14 +31,26 @@ const Songs = () => {
   return (
     <div>
       {songsList ? (
-        <div className="songs-container">
+        <div
+          className={
+            playedSong ? "songs-container player-active" : "songs-container"
+          }
+        >
           {songsList.map(({ id, name, image }) => {
-            return <SingleSong key={id} name={name} image={image} />;
+            return (
+              <SingleSong
+                key={id}
+                name={name}
+                image={image}
+                setPlayedSong={setPlayedSong}
+              />
+            );
           })}
         </div>
       ) : (
         <>Loading</>
       )}
+      {playedSong && <Player song={playedSong} />}
     </div>
   );
 };

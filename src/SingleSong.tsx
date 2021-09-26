@@ -1,14 +1,17 @@
-import { useRef } from "react";
+import { useRef, Dispatch, SetStateAction } from "react";
 
 interface Props {
   name: string;
   image: string;
+  setPlayedSong: Dispatch<SetStateAction<any>>;
 }
 
-const SingleSong = ({ name, image }: Props) => {
+const SingleSong = ({ name, image, setPlayedSong }: Props) => {
   const playButtonRef = useRef<HTMLButtonElement>(null);
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    setPlayedSong({ name, image });
+  };
 
   return (
     <div className="single-song">
