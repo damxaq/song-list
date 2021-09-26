@@ -1,5 +1,6 @@
 import axios from "axios";
 import requests from "./requests";
+import { SongResponse } from "./../models/song";
 
 export const fetchSongList = async () => {
   return axios
@@ -7,16 +8,14 @@ export const fetchSongList = async () => {
     .then((response) => {
       console.log(response);
       const data = response.data;
-      const songs = data.map(
-        (song: { name: string; cover_image_path: string; id: string }) => {
-          return {
-            name: song.name,
-            image: song.cover_image_path,
-            id: song.id,
-            songPath: "../placeholder.mp3",
-          };
-        }
-      );
+      const songs = data.map((song: SongResponse) => {
+        return {
+          name: song.name,
+          image: song.cover_image_path,
+          id: song.id,
+          songPath: "../placeholder.mp3",
+        };
+      });
       return songs;
     })
     .catch((err) => {

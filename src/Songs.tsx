@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import SingleSong from "./SingleSong";
 import Player from "./Player";
-import { fetchSongList } from "./axiosApi";
+import { fetchSongList } from "./utils/axiosApi";
 
 const Songs = () => {
   const [songsList, setSongsList] = useState<any[]>([]);
