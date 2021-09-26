@@ -50,7 +50,7 @@ const Songs = () => {
       ) : (
         <>Loading</>
       )}
-      {playedSong && <Player song={playedSong} />}
+      {playedSong && <Player song={playedSong} setPlayedSong={setPlayedSong} />}
     </div>
   );
 };
