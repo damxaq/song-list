@@ -6,4 +6,24 @@
 body {
   background-color: rgb(28, 32, 43);
   color: white;
+  margin: 0;
+  text-align: center;
+}
+
+.songs-container {
+  width: 80vw;
+  margin: auto;
+}
+
+.single-song {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem 1.5rem;
+}
+
+.single-song img {
+  height: 200px;
+  width: 200px;
+  border: 2px solid black;
 }
