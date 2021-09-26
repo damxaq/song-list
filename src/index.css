@@ -27,3 +27,26 @@ body {
   width: 200px;
   border: 2px solid black;
 }
+
+.single-song img:hover {
+  cursor: pointer;
+  border-color: white;
+}
+
+.play-button {
+  opacity: 0;
+  position: absolute;
+  transform: translate(10px, 60px);
+  background: transparent;
+  width: 74px;
+  height: 74px;
+  border-width: 37px 0px 37px 74px;
+  border-color: transparent transparent transparent #202020;
+  pointer-events: none;
+  transition: 700ms all ease;
+}
+
+.play-button.active {
+  display: block;
+  opacity: 1;
+}

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import SingleSong from "./SingleSong";
+
 const Songs = () => {
   const [songsList, setSongsList] = useState<any[]>([]);
 
@@ -29,12 +31,7 @@ const Songs = () => {
       {songsList ? (
         <div className="songs-container">
           {songsList.map(({ id, name, image }) => {
-            return (
-              <div key={id} className="single-song">
-                <img src={image} alt={name} />
-                <p>{name}</p>
-              </div>
-            );
+            return <SingleSong key={id} name={name} image={image} />;
           })}
         </div>
       ) : (
