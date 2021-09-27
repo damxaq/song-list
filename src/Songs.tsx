@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import SingleSong from "./SingleSong";
 import Player from "./Player";
 import { fetchSongList } from "./utils/axiosApi";
+import { Song } from "./models/song";
 
 const Songs = () => {
-  const [songsList, setSongsList] = useState<any[]>([]);
+  const [songsList, setSongsList] = useState<Song[]>([]);
   const [playedSong, setPlayedSong] = useState(null);
 
   useEffect(() => {
@@ -22,14 +23,11 @@ const Songs = () => {
             playedSong ? "songs-container player-active" : "songs-container"
           }
         >
-          {songsList.map(({ id, name, image, songPath }) => {
+          {songsList.map((song) => {
             return (
               <SingleSong
-                key={id}
-                id={id}
-                name={name}
-                image={image}
-                songPath={songPath}
+                key={song.id}
+                song={song}
                 setPlayedSong={setPlayedSong}
               />
             );

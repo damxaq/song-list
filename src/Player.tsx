@@ -1,9 +1,10 @@
 import { useState, Dispatch, SetStateAction } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { postLikeSong } from "./utils/axiosApi";
+import { Song } from "./models/song";
 
 interface Props {
-  song: any;
+  song: Song;
   setPlayedSong: Dispatch<SetStateAction<any>>;
 }
 

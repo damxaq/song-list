@@ -1,19 +1,18 @@
 import { useRef, Dispatch, SetStateAction } from "react";
+import { Song } from "./models/song";
 
 interface Props {
-  id: string;
-  name: string;
-  image: string;
-  songPath: string;
+  song: Song;
   setPlayedSong: Dispatch<SetStateAction<any>>;
 }
 
-const SingleSong = ({ id, name, image, songPath, setPlayedSong }: Props) => {
+const SingleSong = ({ song, setPlayedSong }: Props) => {
+  const { name, image } = song;
   const playButtonRef = useRef<HTMLButtonElement>(null);
 
   const handlePlaySong = () => {
     setPlayedSong(null);
-    setPlayedSong({ id, name, image, songPath });
+    setPlayedSong(song);
   };
 
   return (
