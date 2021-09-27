@@ -1,5 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 import ReactAudioPlayer from "react-audio-player";
+import { postLikeSong } from "./utils/axiosApi";
 
 interface Props {
   song: any;
@@ -7,17 +8,29 @@ interface Props {
 }
 
 const Player = ({ song, setPlayedSong }: Props) => {
+  const [liked, setliked] = useState(false);
+
   const handleClose = () => {
     setPlayedSong(null);
+  };
+
+  const handleLike = () => {
+    setliked(true);
+    postLikeSong(song.id);
   };
 
   return (
     <div className="player">
       <p className="player-title">{song.name}</p>
-      <ReactAudioPlayer src={song.songPath} autoPlay controls />
-      <span id="close-button" onClick={handleClose}>
+      <div className="player-controls">
+        <ReactAudioPlayer src={song.songPath} autoPlay controls />
+        <div className={liked ? "heart active" : "heart"} onClick={handleLike}>
+          ❤
+        </div>
+      </div>
+      <div id="close-button" onClick={handleClose}>
         X
-      </span>
+      </div>
     </div>
   );
 };

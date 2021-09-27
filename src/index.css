@@ -13,6 +13,7 @@ body {
 
 .songs-container {
   margin: auto;
+  height: 100vh;
   overflow: scroll;
   overflow-x: hidden;
   padding-bottom: 5rem;
@@ -68,6 +69,42 @@ body {
 }
 
 .player-title {
+  font-weight: bold;
+}
+
+.player-controls {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.player-controls .heart {
+  font-size: 3rem;
+  padding-left: 2rem;
+  transform: translateY(-5px);
+  user-select: none;
+}
+
+.player-controls .heart:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.player-controls .heart:active {
+  color: red;
+  cursor: pointer;
+  font-size: 3.5rem;
+  transform: translateY(-10px);
+  padding-left: 1.5rem;
+}
+
+.player-controls .heart.active {
+  color: red;
+  cursor: pointer;
+  font-size: 3.5rem;
+  transform: translateY(-10px);
+  padding-left: 1.5rem;
 }
 
 #close-button {

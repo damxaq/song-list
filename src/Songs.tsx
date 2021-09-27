@@ -26,6 +26,7 @@ const Songs = () => {
             return (
               <SingleSong
                 key={id}
+                id={id}
                 name={name}
                 image={image}
                 songPath={songPath}
@@ -37,7 +38,13 @@ const Songs = () => {
       ) : (
         <>Loading</>
       )}
-      {playedSong && <Player song={playedSong} setPlayedSong={setPlayedSong} />}
+      {playedSong && (
+        <Player
+          key={new Date().getTime()} // way to reset component after changing song
+          song={playedSong}
+          setPlayedSong={setPlayedSong}
+        />
+      )}
     </div>
   );
 };
