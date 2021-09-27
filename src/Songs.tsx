@@ -18,11 +18,7 @@ const Songs = () => {
   return (
     <div>
       {songsList ? (
-        <div
-          className={
-            playedSong ? "songs-container player-active" : "songs-container"
-          }
-        >
+        <div className={`songs-container ${playedSong ? "player-active" : ""}`}>
           {songsList.map((song) => {
             return (
               <SingleSong

@@ -25,7 +25,7 @@ const Player = ({ song, setPlayedSong }: Props) => {
       <p className="player-title">{song.name}</p>
       <div className="player-controls">
         <ReactAudioPlayer src={song.songPath} autoPlay controls />
-        <div className={liked ? "heart active" : "heart"} onClick={handleLike}>
+        <div className={`heart ${liked ? "active" : ""}`} onClick={handleLike}>
           ❤
         </div>
       </div>
